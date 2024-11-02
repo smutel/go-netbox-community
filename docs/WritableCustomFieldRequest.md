@@ -17,19 +17,19 @@ Name | Type | Description | Notes
 **UiVisible** | Pointer to [**PatchedWritableCustomFieldRequestUiVisible**](PatchedWritableCustomFieldRequestUiVisible.md) |  | [optional] 
 **UiEditable** | Pointer to [**PatchedWritableCustomFieldRequestUiEditable**](PatchedWritableCustomFieldRequestUiEditable.md) |  | [optional] 
 **IsCloneable** | Pointer to **bool** | Replicate this value when cloning objects | [optional] 
-**Default** | Pointer to **interface{}** | Default value for the field (must be a JSON value). Encapsulate strings with double quotes (e.g. \&quot;Foo\&quot;). | [optional] 
+**Default** | **interface{}** | Default value for the field (must be a JSON value). Encapsulate strings with double quotes (e.g. \&quot;Foo\&quot;). | 
 **Weight** | Pointer to **int32** | Fields with higher weights appear lower in a form. | [optional] 
 **ValidationMinimum** | Pointer to **NullableInt64** | Minimum allowed value (for numeric fields) | [optional] 
 **ValidationMaximum** | Pointer to **NullableInt64** | Maximum allowed value (for numeric fields) | [optional] 
 **ValidationRegex** | Pointer to **string** | Regular expression to enforce on text field values. Use ^ and $ to force matching of entire string. For example, &lt;code&gt;^[A-Z]{3}$&lt;/code&gt; will limit values to exactly three uppercase letters. | [optional] 
-**ChoiceSet** | Pointer to [**NullableCustomFieldChoiceSetRequest**](CustomFieldChoiceSetRequest.md) |  | [optional] 
+**ChoiceSet** | Pointer to [**NullableBriefCustomFieldChoiceSetRequest**](BriefCustomFieldChoiceSetRequest.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewWritableCustomFieldRequest
 
-`func NewWritableCustomFieldRequest(objectTypes []string, name string, ) *WritableCustomFieldRequest`
+`func NewWritableCustomFieldRequest(objectTypes []string, name string, default_ interface{}, ) *WritableCustomFieldRequest`
 
 NewWritableCustomFieldRequest instantiates a new WritableCustomFieldRequest object
 This constructor will assign default values to properties that have it defined,
@@ -388,11 +388,6 @@ and a boolean to check if the value has been set.
 
 SetDefault sets Default field to given value.
 
-### HasDefault
-
-`func (o *WritableCustomFieldRequest) HasDefault() bool`
-
-HasDefault returns a boolean if a field has been set.
 
 ### SetDefaultNil
 
@@ -526,20 +521,20 @@ HasValidationRegex returns a boolean if a field has been set.
 
 ### GetChoiceSet
 
-`func (o *WritableCustomFieldRequest) GetChoiceSet() CustomFieldChoiceSetRequest`
+`func (o *WritableCustomFieldRequest) GetChoiceSet() BriefCustomFieldChoiceSetRequest`
 
 GetChoiceSet returns the ChoiceSet field if non-nil, zero value otherwise.
 
 ### GetChoiceSetOk
 
-`func (o *WritableCustomFieldRequest) GetChoiceSetOk() (*CustomFieldChoiceSetRequest, bool)`
+`func (o *WritableCustomFieldRequest) GetChoiceSetOk() (*BriefCustomFieldChoiceSetRequest, bool)`
 
 GetChoiceSetOk returns a tuple with the ChoiceSet field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChoiceSet
 
-`func (o *WritableCustomFieldRequest) SetChoiceSet(v CustomFieldChoiceSetRequest)`
+`func (o *WritableCustomFieldRequest) SetChoiceSet(v BriefCustomFieldChoiceSetRequest)`
 
 SetChoiceSet sets ChoiceSet field to given value.
 
