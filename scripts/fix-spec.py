@@ -10,7 +10,7 @@ with open(SPEC_PATH, 'r') as file:
 
 # Traverse schemas
 if 'components' in data and 'schemas' in data['components']:
-    for name, schema in data['components']['schemas'].items():
+    for component_name, schema in data['components']['schemas'].items():
         if 'properties' in schema:
             # Remove "null" item from nullable enums
             for name, prop in schema['properties'].items():
@@ -39,7 +39,17 @@ if 'components' in data and 'schemas' in data['components']:
             for ntype in non_nullable_types:
                 if ntype in schema['properties']:
                     if schema['properties'][ntype]['format'] == 'binary':
-                        schema['properties'][ntype].pop('nullable')
+                        if 'nullable' in schema['properties'][ntype]:
+                            schema['properties'][ntype].pop('nullable')
+
+        if 'required' in schema:
+            required = {
+                "WritableCustomFieldRequest": ["default"]
+            }
+
+            if component_name in required.keys():
+                for r in required[component_name]:
+                    schema['required'].append(r)
 
 # Save the spec file
 with open(SPEC_PATH, 'w') as file:
