@@ -103379,7 +103379,6 @@ components:
           format: int64
           readOnly: true
       required:
-      - devicetype_count
       - display
       - id
       - name

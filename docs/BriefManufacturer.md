@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**DevicetypeCount** | **int64** |  | [readonly] 
+**DevicetypeCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewBriefManufacturer
 
-`func NewBriefManufacturer(id int32, url string, display string, name string, slug string, devicetypeCount int64, ) *BriefManufacturer`
+`func NewBriefManufacturer(id int32, url string, display string, name string, slug string, ) *BriefManufacturer`
 
 NewBriefManufacturer instantiates a new BriefManufacturer object
 This constructor will assign default values to properties that have it defined,
@@ -175,6 +175,11 @@ and a boolean to check if the value has been set.
 
 SetDevicetypeCount sets DevicetypeCount field to given value.
 
+### HasDevicetypeCount
+
+`func (o *BriefManufacturer) HasDevicetypeCount() bool`
+
+HasDevicetypeCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

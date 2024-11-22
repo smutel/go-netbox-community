@@ -55,6 +55,16 @@ if 'components' in data and 'schemas' in data['components']:
                 for propertie in change_type[component_name].keys():
                     schema['properties'][propertie]['type'] = change_type[component_name][propertie]
 
+            if 'required' in schema:
+                non_required = {
+                    "BriefManufacturer": ["devicetype_count"]
+                }
+
+                if component_name in non_required.keys():
+                    for r in non_required[component_name]:
+                        if r in schema['required']:
+                            schema['required'].remove(r)
+
 
 # Save the spec file
 with open(SPEC_PATH, 'w') as file:
