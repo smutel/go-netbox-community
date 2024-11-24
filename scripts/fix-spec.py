@@ -59,8 +59,17 @@ if 'components' in data and 'schemas' in data['components']:
                 non_required = {
                     "BriefManufacturer": ["devicetype_count"],
                     "BriefRIR": ["aggregate_count"],
-                    "ASN": ["created", "last_updated","site_count","provider_count"],
+                    "ASN": ["created", "last_updated", "site_count", "provider_count"],
                     "BriefRackRole": ["rack_count"],
+                    "BriefClusterType": ["cluster_count"],
+                    "BriefClusterGroup": ["cluster_count"],
+                    "BriefCluster": ["virtualmachine_count"],
+                    "BriefDeviceRole": ["device_count", "virtualmachine_count"],
+                    "BriefPlatform": ["device_count", "virtualmachine_count"],
+                    "BriefVRF": ["prefix_count"],
+                    "BriefVLANGroup": ["vlan_count"],
+                    "VLAN": ["l2vpn_termination", "created", "last_updated", "prefix_count"],
+                    "BriefRole": ["prefix_count", "vlan_count"],
                 }
 
                 if component_name in non_required.keys():

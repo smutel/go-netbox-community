@@ -34,12 +34,12 @@ type VLAN struct {
 	Role                 NullableBriefRole             `json:"role,omitempty"`
 	Description          *string                       `json:"description,omitempty"`
 	Comments             *string                       `json:"comments,omitempty"`
-	L2vpnTermination     NullableBriefL2VPNTermination `json:"l2vpn_termination"`
+	L2vpnTermination     NullableBriefL2VPNTermination `json:"l2vpn_termination,omitempty"`
 	Tags                 []NestedTag                   `json:"tags,omitempty"`
 	CustomFields         map[string]interface{}        `json:"custom_fields,omitempty"`
-	Created              NullableTime                  `json:"created"`
-	LastUpdated          NullableTime                  `json:"last_updated"`
-	PrefixCount          int64                         `json:"prefix_count"`
+	Created              NullableTime                  `json:"created,omitempty"`
+	LastUpdated          NullableTime                  `json:"last_updated,omitempty"`
+	PrefixCount          *int64                        `json:"prefix_count,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -49,17 +49,13 @@ type _VLAN VLAN
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVLAN(id int32, url string, display string, vid int32, name string, l2vpnTermination NullableBriefL2VPNTermination, created NullableTime, lastUpdated NullableTime, prefixCount int64) *VLAN {
+func NewVLAN(id int32, url string, display string, vid int32, name string) *VLAN {
 	this := VLAN{}
 	this.Id = id
 	this.Url = url
 	this.Display = display
 	this.Vid = vid
 	this.Name = name
-	this.L2vpnTermination = l2vpnTermination
-	this.Created = created
-	this.LastUpdated = lastUpdated
-	this.PrefixCount = prefixCount
 	return &this
 }
 
@@ -459,18 +455,16 @@ func (o *VLAN) SetComments(v string) {
 	o.Comments = &v
 }
 
-// GetL2vpnTermination returns the L2vpnTermination field value
-// If the value is explicit nil, the zero value for BriefL2VPNTermination will be returned
+// GetL2vpnTermination returns the L2vpnTermination field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetL2vpnTermination() BriefL2VPNTermination {
-	if o == nil || o.L2vpnTermination.Get() == nil {
+	if o == nil || IsNil(o.L2vpnTermination.Get()) {
 		var ret BriefL2VPNTermination
 		return ret
 	}
-
 	return *o.L2vpnTermination.Get()
 }
 
-// GetL2vpnTerminationOk returns a tuple with the L2vpnTermination field value
+// GetL2vpnTerminationOk returns a tuple with the L2vpnTermination field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VLAN) GetL2vpnTerminationOk() (*BriefL2VPNTermination, bool) {
@@ -480,9 +474,28 @@ func (o *VLAN) GetL2vpnTerminationOk() (*BriefL2VPNTermination, bool) {
 	return o.L2vpnTermination.Get(), o.L2vpnTermination.IsSet()
 }
 
-// SetL2vpnTermination sets field value
+// HasL2vpnTermination returns a boolean if a field has been set.
+func (o *VLAN) HasL2vpnTermination() bool {
+	if o != nil && o.L2vpnTermination.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetL2vpnTermination gets a reference to the given NullableBriefL2VPNTermination and assigns it to the L2vpnTermination field.
 func (o *VLAN) SetL2vpnTermination(v BriefL2VPNTermination) {
 	o.L2vpnTermination.Set(&v)
+}
+
+// SetL2vpnTerminationNil sets the value for L2vpnTermination to be an explicit nil
+func (o *VLAN) SetL2vpnTerminationNil() {
+	o.L2vpnTermination.Set(nil)
+}
+
+// UnsetL2vpnTermination ensures that no value is present for L2vpnTermination, not even an explicit nil
+func (o *VLAN) UnsetL2vpnTermination() {
+	o.L2vpnTermination.Unset()
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
@@ -549,18 +562,16 @@ func (o *VLAN) SetCustomFields(v map[string]interface{}) {
 	o.CustomFields = v
 }
 
-// GetCreated returns the Created field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// GetCreated returns the Created field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetCreated() time.Time {
-	if o == nil || o.Created.Get() == nil {
+	if o == nil || IsNil(o.Created.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.Created.Get()
 }
 
-// GetCreatedOk returns a tuple with the Created field value
+// GetCreatedOk returns a tuple with the Created field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VLAN) GetCreatedOk() (*time.Time, bool) {
@@ -570,23 +581,40 @@ func (o *VLAN) GetCreatedOk() (*time.Time, bool) {
 	return o.Created.Get(), o.Created.IsSet()
 }
 
-// SetCreated sets field value
+// HasCreated returns a boolean if a field has been set.
+func (o *VLAN) HasCreated() bool {
+	if o != nil && o.Created.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreated gets a reference to the given NullableTime and assigns it to the Created field.
 func (o *VLAN) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-// GetLastUpdated returns the LastUpdated field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// SetCreatedNil sets the value for Created to be an explicit nil
+func (o *VLAN) SetCreatedNil() {
+	o.Created.Set(nil)
+}
+
+// UnsetCreated ensures that no value is present for Created, not even an explicit nil
+func (o *VLAN) UnsetCreated() {
+	o.Created.Unset()
+}
+
+// GetLastUpdated returns the LastUpdated field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetLastUpdated() time.Time {
-	if o == nil || o.LastUpdated.Get() == nil {
+	if o == nil || IsNil(o.LastUpdated.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.LastUpdated.Get()
 }
 
-// GetLastUpdatedOk returns a tuple with the LastUpdated field value
+// GetLastUpdatedOk returns a tuple with the LastUpdated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VLAN) GetLastUpdatedOk() (*time.Time, bool) {
@@ -596,33 +624,60 @@ func (o *VLAN) GetLastUpdatedOk() (*time.Time, bool) {
 	return o.LastUpdated.Get(), o.LastUpdated.IsSet()
 }
 
-// SetLastUpdated sets field value
+// HasLastUpdated returns a boolean if a field has been set.
+func (o *VLAN) HasLastUpdated() bool {
+	if o != nil && o.LastUpdated.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdated gets a reference to the given NullableTime and assigns it to the LastUpdated field.
 func (o *VLAN) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-// GetPrefixCount returns the PrefixCount field value
+// SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
+func (o *VLAN) SetLastUpdatedNil() {
+	o.LastUpdated.Set(nil)
+}
+
+// UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+func (o *VLAN) UnsetLastUpdated() {
+	o.LastUpdated.Unset()
+}
+
+// GetPrefixCount returns the PrefixCount field value if set, zero value otherwise.
 func (o *VLAN) GetPrefixCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.PrefixCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.PrefixCount
+	return *o.PrefixCount
 }
 
-// GetPrefixCountOk returns a tuple with the PrefixCount field value
+// GetPrefixCountOk returns a tuple with the PrefixCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VLAN) GetPrefixCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PrefixCount) {
 		return nil, false
 	}
-	return &o.PrefixCount, true
+	return o.PrefixCount, true
 }
 
-// SetPrefixCount sets field value
+// HasPrefixCount returns a boolean if a field has been set.
+func (o *VLAN) HasPrefixCount() bool {
+	if o != nil && !IsNil(o.PrefixCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrefixCount gets a reference to the given int64 and assigns it to the PrefixCount field.
 func (o *VLAN) SetPrefixCount(v int64) {
-	o.PrefixCount = v
+	o.PrefixCount = &v
 }
 
 func (o VLAN) MarshalJSON() ([]byte, error) {
@@ -661,16 +716,24 @@ func (o VLAN) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Comments) {
 		toSerialize["comments"] = o.Comments
 	}
-	toSerialize["l2vpn_termination"] = o.L2vpnTermination.Get()
+	if o.L2vpnTermination.IsSet() {
+		toSerialize["l2vpn_termination"] = o.L2vpnTermination.Get()
+	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.CustomFields) {
 		toSerialize["custom_fields"] = o.CustomFields
 	}
-	toSerialize["created"] = o.Created.Get()
-	toSerialize["last_updated"] = o.LastUpdated.Get()
-	toSerialize["prefix_count"] = o.PrefixCount
+	if o.Created.IsSet() {
+		toSerialize["created"] = o.Created.Get()
+	}
+	if o.LastUpdated.IsSet() {
+		toSerialize["last_updated"] = o.LastUpdated.Get()
+	}
+	if !IsNil(o.PrefixCount) {
+		toSerialize["prefix_count"] = o.PrefixCount
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -689,10 +752,6 @@ func (o *VLAN) UnmarshalJSON(data []byte) (err error) {
 		"display",
 		"vid",
 		"name",
-		"l2vpn_termination",
-		"created",
-		"last_updated",
-		"prefix_count",
 	}
 
 	allProperties := make(map[string]interface{})

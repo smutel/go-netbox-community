@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Rd** | Pointer to **NullableString** | Unique route distinguisher (as defined in RFC 4364) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**PrefixCount** | **int64** |  | [readonly] 
+**PrefixCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewBriefVRF
 
-`func NewBriefVRF(id int32, url string, display string, name string, prefixCount int64, ) *BriefVRF`
+`func NewBriefVRF(id int32, url string, display string, name string, ) *BriefVRF`
 
 NewBriefVRF instantiates a new BriefVRF object
 This constructor will assign default values to properties that have it defined,
@@ -190,6 +190,11 @@ and a boolean to check if the value has been set.
 
 SetPrefixCount sets PrefixCount field to given value.
 
+### HasPrefixCount
+
+`func (o *BriefVRF) HasPrefixCount() bool`
+
+HasPrefixCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

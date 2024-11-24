@@ -102093,7 +102093,6 @@ components:
       - id
       - name
       - url
-      - virtualmachine_count
     BriefClusterGroup:
       type: object
       description: Adds support for custom fields and tags.
@@ -102123,7 +102122,6 @@ components:
           format: int64
           readOnly: true
       required:
-      - cluster_count
       - display
       - id
       - name
@@ -102190,7 +102188,6 @@ components:
           format: int64
           readOnly: true
       required:
-      - cluster_count
       - display
       - id
       - name
@@ -102583,13 +102580,11 @@ components:
           format: int64
           readOnly: true
       required:
-      - device_count
       - display
       - id
       - name
       - slug
       - url
-      - virtualmachine_count
     BriefDeviceRoleRequest:
       type: object
       description: Adds support for custom fields and tags.
@@ -103511,13 +103506,11 @@ components:
           format: int64
           readOnly: true
       required:
-      - device_count
       - display
       - id
       - name
       - slug
       - url
-      - virtualmachine_count
     BriefPlatformRequest:
       type: object
       description: Adds support for custom fields and tags.
@@ -104117,10 +104110,8 @@ components:
       - display
       - id
       - name
-      - prefix_count
       - slug
       - url
-      - vlan_count
     BriefRoleRequest:
       type: object
       description: Adds support for custom fields and tags.
@@ -104560,7 +104551,6 @@ components:
       - name
       - slug
       - url
-      - vlan_count
     BriefVLANGroupRequest:
       type: object
       description: Adds support for custom fields and tags.
@@ -104634,7 +104624,6 @@ components:
       - display
       - id
       - name
-      - prefix_count
       - url
     BriefVRFRequest:
       type: object
@@ -139717,13 +139706,9 @@ components:
           format: int64
           readOnly: true
       required:
-      - created
       - display
       - id
-      - l2vpn_termination
-      - last_updated
       - name
-      - prefix_count
       - url
       - vid
     VLANGroup:

@@ -26,8 +26,8 @@ type BriefRole struct {
 	Name                 string  `json:"name"`
 	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
-	PrefixCount          int64   `json:"prefix_count"`
-	VlanCount            int64   `json:"vlan_count"`
+	PrefixCount          *int64  `json:"prefix_count,omitempty"`
+	VlanCount            *int64  `json:"vlan_count,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -37,15 +37,13 @@ type _BriefRole BriefRole
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBriefRole(id int32, url string, display string, name string, slug string, prefixCount int64, vlanCount int64) *BriefRole {
+func NewBriefRole(id int32, url string, display string, name string, slug string) *BriefRole {
 	this := BriefRole{}
 	this.Id = id
 	this.Url = url
 	this.Display = display
 	this.Name = name
 	this.Slug = slug
-	this.PrefixCount = prefixCount
-	this.VlanCount = vlanCount
 	return &this
 }
 
@@ -209,52 +207,68 @@ func (o *BriefRole) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetPrefixCount returns the PrefixCount field value
+// GetPrefixCount returns the PrefixCount field value if set, zero value otherwise.
 func (o *BriefRole) GetPrefixCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.PrefixCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.PrefixCount
+	return *o.PrefixCount
 }
 
-// GetPrefixCountOk returns a tuple with the PrefixCount field value
+// GetPrefixCountOk returns a tuple with the PrefixCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BriefRole) GetPrefixCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PrefixCount) {
 		return nil, false
 	}
-	return &o.PrefixCount, true
+	return o.PrefixCount, true
 }
 
-// SetPrefixCount sets field value
+// HasPrefixCount returns a boolean if a field has been set.
+func (o *BriefRole) HasPrefixCount() bool {
+	if o != nil && !IsNil(o.PrefixCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrefixCount gets a reference to the given int64 and assigns it to the PrefixCount field.
 func (o *BriefRole) SetPrefixCount(v int64) {
-	o.PrefixCount = v
+	o.PrefixCount = &v
 }
 
-// GetVlanCount returns the VlanCount field value
+// GetVlanCount returns the VlanCount field value if set, zero value otherwise.
 func (o *BriefRole) GetVlanCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.VlanCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.VlanCount
+	return *o.VlanCount
 }
 
-// GetVlanCountOk returns a tuple with the VlanCount field value
+// GetVlanCountOk returns a tuple with the VlanCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BriefRole) GetVlanCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VlanCount) {
 		return nil, false
 	}
-	return &o.VlanCount, true
+	return o.VlanCount, true
 }
 
-// SetVlanCount sets field value
+// HasVlanCount returns a boolean if a field has been set.
+func (o *BriefRole) HasVlanCount() bool {
+	if o != nil && !IsNil(o.VlanCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetVlanCount gets a reference to the given int64 and assigns it to the VlanCount field.
 func (o *BriefRole) SetVlanCount(v int64) {
-	o.VlanCount = v
+	o.VlanCount = &v
 }
 
 func (o BriefRole) MarshalJSON() ([]byte, error) {
@@ -275,8 +289,12 @@ func (o BriefRole) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	toSerialize["prefix_count"] = o.PrefixCount
-	toSerialize["vlan_count"] = o.VlanCount
+	if !IsNil(o.PrefixCount) {
+		toSerialize["prefix_count"] = o.PrefixCount
+	}
+	if !IsNil(o.VlanCount) {
+		toSerialize["vlan_count"] = o.VlanCount
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -295,8 +313,6 @@ func (o *BriefRole) UnmarshalJSON(data []byte) (err error) {
 		"display",
 		"name",
 		"slug",
-		"prefix_count",
-		"vlan_count",
 	}
 
 	allProperties := make(map[string]interface{})

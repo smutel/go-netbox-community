@@ -16,18 +16,18 @@ Name | Type | Description | Notes
 **Role** | Pointer to [**NullableBriefRole**](BriefRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
-**L2vpnTermination** | [**NullableBriefL2VPNTermination**](BriefL2VPNTermination.md) |  | [readonly] 
+**L2vpnTermination** | Pointer to [**NullableBriefL2VPNTermination**](BriefL2VPNTermination.md) |  | [optional] [readonly] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
-**PrefixCount** | **int64** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**PrefixCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewVLAN
 
-`func NewVLAN(id int32, url string, display string, vid int32, name string, l2vpnTermination NullableBriefL2VPNTermination, created NullableTime, lastUpdated NullableTime, prefixCount int64, ) *VLAN`
+`func NewVLAN(id int32, url string, display string, vid int32, name string, ) *VLAN`
 
 NewVLAN instantiates a new VLAN object
 This constructor will assign default values to properties that have it defined,
@@ -376,6 +376,11 @@ and a boolean to check if the value has been set.
 
 SetL2vpnTermination sets L2vpnTermination field to given value.
 
+### HasL2vpnTermination
+
+`func (o *VLAN) HasL2vpnTermination() bool`
+
+HasL2vpnTermination returns a boolean if a field has been set.
 
 ### SetL2vpnTerminationNil
 
@@ -456,6 +461,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *VLAN) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -486,6 +496,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *VLAN) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 
@@ -516,6 +531,11 @@ and a boolean to check if the value has been set.
 
 SetPrefixCount sets PrefixCount field to given value.
 
+### HasPrefixCount
+
+`func (o *VLAN) HasPrefixCount() bool`
+
+HasPrefixCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
