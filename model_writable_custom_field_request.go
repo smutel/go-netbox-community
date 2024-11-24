@@ -789,9 +789,7 @@ func (o WritableCustomFieldRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsCloneable) {
 		toSerialize["is_cloneable"] = o.IsCloneable
 	}
-	if o.Default != nil {
-		toSerialize["default"] = o.Default
-	}
+	toSerialize["default"] = o.Default
 	if !IsNil(o.Weight) {
 		toSerialize["weight"] = o.Weight
 	}
