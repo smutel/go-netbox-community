@@ -103858,7 +103858,6 @@ components:
           format: int64
           readOnly: true
       required:
-      - aggregate_count
       - display
       - id
       - name

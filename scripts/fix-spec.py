@@ -57,7 +57,8 @@ if 'components' in data and 'schemas' in data['components']:
 
             if 'required' in schema:
                 non_required = {
-                    "BriefManufacturer": ["devicetype_count"]
+                    "BriefManufacturer": ["devicetype_count"],
+                    "BriefRIR": ["aggregate_count"]
                 }
 
                 if component_name in non_required.keys():
