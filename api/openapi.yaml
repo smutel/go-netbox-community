@@ -101547,12 +101547,8 @@ components:
           readOnly: true
       required:
       - asn
-      - created
       - display
       - id
-      - last_updated
-      - provider_count
-      - site_count
       - url
     ASNRange:
       type: object

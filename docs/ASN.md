@@ -14,16 +14,16 @@ Name | Type | Description | Notes
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
-**SiteCount** | **int64** |  | [readonly] 
-**ProviderCount** | **int64** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**SiteCount** | Pointer to **int64** |  | [optional] [readonly] 
+**ProviderCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewASN
 
-`func NewASN(id int32, url string, display string, asn int64, created NullableTime, lastUpdated NullableTime, siteCount int64, providerCount int64, ) *ASN`
+`func NewASN(id int32, url string, display string, asn int64, ) *ASN`
 
 NewASN instantiates a new ASN object
 This constructor will assign default values to properties that have it defined,
@@ -307,6 +307,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ASN) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -337,6 +342,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *ASN) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 
@@ -367,6 +377,11 @@ and a boolean to check if the value has been set.
 
 SetSiteCount sets SiteCount field to given value.
 
+### HasSiteCount
+
+`func (o *ASN) HasSiteCount() bool`
+
+HasSiteCount returns a boolean if a field has been set.
 
 ### GetProviderCount
 
@@ -387,6 +402,11 @@ and a boolean to check if the value has been set.
 
 SetProviderCount sets ProviderCount field to given value.
 
+### HasProviderCount
+
+`func (o *ASN) HasProviderCount() bool`
+
+HasProviderCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
