@@ -103953,7 +103953,6 @@ components:
       - display
       - id
       - name
-      - rack_count
       - slug
       - url
     BriefRackRoleRequest:

@@ -60,6 +60,7 @@ if 'components' in data and 'schemas' in data['components']:
                     "BriefManufacturer": ["devicetype_count"],
                     "BriefRIR": ["aggregate_count"],
                     "ASN": ["created", "last_updated","site_count","provider_count"],
+                    "BriefRackRole": ["rack_count"],
                 }
 
                 if component_name in non_required.keys():
