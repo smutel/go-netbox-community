@@ -25,7 +25,7 @@ type BriefSite struct {
 	Display string `json:"display"`
 	// Full name of the site
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

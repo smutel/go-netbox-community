@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedWritableTenantGroupRequest{}
 // PatchedWritableTenantGroupRequest Extends PrimaryModelSerializer to include MPTT support.
 type PatchedWritableTenantGroupRequest struct {
 	Name                 *string                `json:"name,omitempty"`
-	Slug                 *string                `json:"slug,omitempty"`
+	Slug                 *string                `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Parent               NullableInt32          `json:"parent,omitempty"`
 	Description          *string                `json:"description,omitempty"`
 	Tags                 []NestedTagRequest     `json:"tags,omitempty"`

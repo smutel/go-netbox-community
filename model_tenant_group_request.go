@@ -21,7 +21,7 @@ var _ MappedNullable = &TenantGroupRequest{}
 // TenantGroupRequest Extends PrimaryModelSerializer to include MPTT support.
 type TenantGroupRequest struct {
 	Name                 string                           `json:"name"`
-	Slug                 string                           `json:"slug"`
+	Slug                 string                           `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Parent               NullableNestedTenantGroupRequest `json:"parent,omitempty"`
 	Description          *string                          `json:"description,omitempty"`
 	Tags                 []NestedTagRequest               `json:"tags,omitempty"`

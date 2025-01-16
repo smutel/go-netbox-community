@@ -31,7 +31,7 @@ type RearPortTemplate struct {
 	// Physical label
 	Label                *string       `json:"label,omitempty"`
 	Type                 FrontPortType `json:"type"`
-	Color                *string       `json:"color,omitempty"`
+	Color                *string       `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	Positions            *int32        `json:"positions,omitempty"`
 	Description          *string       `json:"description,omitempty"`
 	Created              NullableTime  `json:"created"`

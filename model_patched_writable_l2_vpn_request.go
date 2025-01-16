@@ -21,7 +21,7 @@ var _ MappedNullable = &PatchedWritableL2VPNRequest{}
 type PatchedWritableL2VPNRequest struct {
 	Identifier           NullableInt64              `json:"identifier,omitempty"`
 	Name                 *string                    `json:"name,omitempty"`
-	Slug                 *string                    `json:"slug,omitempty"`
+	Slug                 *string                    `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Type                 *BriefL2VPNTypeValue       `json:"type,omitempty"`
 	ImportTargets        []int32                    `json:"import_targets,omitempty"`
 	ExportTargets        []int32                    `json:"export_targets,omitempty"`

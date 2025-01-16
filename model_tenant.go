@@ -25,7 +25,7 @@ type Tenant struct {
 	Url                  string                   `json:"url"`
 	Display              string                   `json:"display"`
 	Name                 string                   `json:"name"`
-	Slug                 string                   `json:"slug"`
+	Slug                 string                   `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Group                NullableBriefTenantGroup `json:"group,omitempty"`
 	Description          *string                  `json:"description,omitempty"`
 	Comments             *string                  `json:"comments,omitempty"`

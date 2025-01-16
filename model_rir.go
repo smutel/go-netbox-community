@@ -25,7 +25,7 @@ type RIR struct {
 	Url     string `json:"url"`
 	Display string `json:"display"`
 	Name    string `json:"name"`
-	Slug    string `json:"slug"`
+	Slug    string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	// IP space managed by this RIR is considered private
 	IsPrivate            *bool                  `json:"is_private,omitempty"`
 	Description          *string                `json:"description,omitempty"`

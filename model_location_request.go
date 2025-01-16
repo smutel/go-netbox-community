@@ -21,7 +21,7 @@ var _ MappedNullable = &LocationRequest{}
 // LocationRequest Extends PrimaryModelSerializer to include MPTT support.
 type LocationRequest struct {
 	Name   string                        `json:"name"`
-	Slug   string                        `json:"slug"`
+	Slug   string                        `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Site   BriefSiteRequest              `json:"site"`
 	Parent NullableNestedLocationRequest `json:"parent,omitempty"`
 	Status *LocationStatusValue          `json:"status,omitempty"`

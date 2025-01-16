@@ -21,7 +21,7 @@ var _ MappedNullable = &ContactGroupRequest{}
 // ContactGroupRequest Extends PrimaryModelSerializer to include MPTT support.
 type ContactGroupRequest struct {
 	Name                 string                            `json:"name"`
-	Slug                 string                            `json:"slug"`
+	Slug                 string                            `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Parent               NullableNestedContactGroupRequest `json:"parent,omitempty"`
 	Description          *string                           `json:"description,omitempty"`
 	Tags                 []NestedTagRequest                `json:"tags,omitempty"`

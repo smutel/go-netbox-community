@@ -22,7 +22,7 @@ var _ MappedNullable = &UserRequest{}
 // UserRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type UserRequest struct {
 	// Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
-	Username  string  `json:"username"`
+	Username  string  `json:"username" validate:"regexp=^[\\\\w.@+-]+$"`
 	Password  string  `json:"password"`
 	FirstName *string `json:"first_name,omitempty"`
 	LastName  *string `json:"last_name,omitempty"`

@@ -24,7 +24,7 @@ type BriefUser struct {
 	Url     string `json:"url"`
 	Display string `json:"display"`
 	// Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
-	Username             string `json:"username"`
+	Username             string `json:"username" validate:"regexp=^[\\\\w.@+-]+$"`
 	AdditionalProperties map[string]interface{}
 }
 

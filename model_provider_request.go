@@ -22,7 +22,7 @@ var _ MappedNullable = &ProviderRequest{}
 type ProviderRequest struct {
 	// Full name of the provider
 	Name                 string                 `json:"name"`
-	Slug                 string                 `json:"slug"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Accounts             []int32                `json:"accounts,omitempty"`
 	Description          *string                `json:"description,omitempty"`
 	Comments             *string                `json:"comments,omitempty"`

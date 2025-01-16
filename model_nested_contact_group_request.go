@@ -21,7 +21,7 @@ var _ MappedNullable = &NestedContactGroupRequest{}
 // NestedContactGroupRequest Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type NestedContactGroupRequest struct {
 	Name                 string `json:"name"`
-	Slug                 string `json:"slug"`
+	Slug                 string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	AdditionalProperties map[string]interface{}
 }
 

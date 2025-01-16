@@ -21,8 +21,8 @@ var _ MappedNullable = &TagRequest{}
 // TagRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type TagRequest struct {
 	Name                 string   `json:"name"`
-	Slug                 string   `json:"slug"`
-	Color                *string  `json:"color,omitempty"`
+	Slug                 string   `json:"slug" validate:"regexp=^[-\\\\w]+$"`
+	Color                *string  `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	Description          *string  `json:"description,omitempty"`
 	ObjectTypes          []string `json:"object_types,omitempty"`
 	AdditionalProperties map[string]interface{}

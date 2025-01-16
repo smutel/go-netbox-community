@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedPlatformRequest{}
 // PatchedPlatformRequest Adds support for custom fields and tags.
 type PatchedPlatformRequest struct {
 	Name                 *string                            `json:"name,omitempty"`
-	Slug                 *string                            `json:"slug,omitempty"`
+	Slug                 *string                            `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Manufacturer         NullableBriefManufacturerRequest   `json:"manufacturer,omitempty"`
 	ConfigTemplate       NullableBriefConfigTemplateRequest `json:"config_template,omitempty"`
 	Description          *string                            `json:"description,omitempty"`

@@ -22,7 +22,7 @@ var _ MappedNullable = &BriefDeviceTypeRequest{}
 type BriefDeviceTypeRequest struct {
 	Manufacturer         BriefManufacturerRequest `json:"manufacturer"`
 	Model                string                   `json:"model"`
-	Slug                 string                   `json:"slug"`
+	Slug                 string                   `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string                  `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

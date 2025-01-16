@@ -25,7 +25,7 @@ type Region struct {
 	Url                  string                 `json:"url"`
 	Display              string                 `json:"display"`
 	Name                 string                 `json:"name"`
-	Slug                 string                 `json:"slug"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Parent               NullableNestedRegion   `json:"parent,omitempty"`
 	Description          *string                `json:"description,omitempty"`
 	Tags                 []NestedTag            `json:"tags,omitempty"`

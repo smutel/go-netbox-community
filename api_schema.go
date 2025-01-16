@@ -83,10 +83,10 @@ func (a *SchemaAPIService) SchemaRetrieveExecute(r ApiSchemaRetrieveRequest) (ma
 	localVarFormParams := url.Values{}
 
 	if r.format != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
 	}
 	if r.lang != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "lang", r.lang, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "lang", r.lang, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

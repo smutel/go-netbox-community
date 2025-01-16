@@ -20,8 +20,8 @@ var _ MappedNullable = &PatchedRackRoleRequest{}
 // PatchedRackRoleRequest Adds support for custom fields and tags.
 type PatchedRackRoleRequest struct {
 	Name                 *string                `json:"name,omitempty"`
-	Slug                 *string                `json:"slug,omitempty"`
-	Color                *string                `json:"color,omitempty"`
+	Slug                 *string                `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Color                *string                `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	Description          *string                `json:"description,omitempty"`
 	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
 	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`

@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedWritableLocationRequest{}
 // PatchedWritableLocationRequest Extends PrimaryModelSerializer to include MPTT support.
 type PatchedWritableLocationRequest struct {
 	Name   *string                    `json:"name,omitempty"`
-	Slug   *string                    `json:"slug,omitempty"`
+	Slug   *string                    `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Site   *BriefSiteRequest          `json:"site,omitempty"`
 	Parent NullableInt32              `json:"parent,omitempty"`
 	Status *LocationStatusValue       `json:"status,omitempty"`

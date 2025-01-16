@@ -24,7 +24,7 @@ type BriefVLANGroup struct {
 	Url                  string  `json:"url"`
 	Display              string  `json:"display"`
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	VlanCount            int64   `json:"vlan_count"`
 	AdditionalProperties map[string]interface{}

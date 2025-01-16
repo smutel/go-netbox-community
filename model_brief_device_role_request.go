@@ -21,7 +21,7 @@ var _ MappedNullable = &BriefDeviceRoleRequest{}
 // BriefDeviceRoleRequest Adds support for custom fields and tags.
 type BriefDeviceRoleRequest struct {
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

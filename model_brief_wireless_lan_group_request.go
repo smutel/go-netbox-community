@@ -21,7 +21,7 @@ var _ MappedNullable = &BriefWirelessLANGroupRequest{}
 // BriefWirelessLANGroupRequest Extends PrimaryModelSerializer to include MPTT support.
 type BriefWirelessLANGroupRequest struct {
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedContactRoleRequest{}
 // PatchedContactRoleRequest Adds support for custom fields and tags.
 type PatchedContactRoleRequest struct {
 	Name                 *string                `json:"name,omitempty"`
-	Slug                 *string                `json:"slug,omitempty"`
+	Slug                 *string                `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string                `json:"description,omitempty"`
 	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
 	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`

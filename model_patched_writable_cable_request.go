@@ -25,7 +25,7 @@ type PatchedWritableCableRequest struct {
 	Status               *CableStatusValue          `json:"status,omitempty"`
 	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
 	Label                *string                    `json:"label,omitempty"`
-	Color                *string                    `json:"color,omitempty"`
+	Color                *string                    `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	Length               NullableFloat64            `json:"length,omitempty"`
 	LengthUnit           *CableLengthUnitValue      `json:"length_unit,omitempty"`
 	Description          *string                    `json:"description,omitempty"`

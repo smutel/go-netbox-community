@@ -26,7 +26,7 @@ type WritableRearPortRequest struct {
 	// Physical label
 	Label *string            `json:"label,omitempty"`
 	Type  FrontPortTypeValue `json:"type"`
-	Color *string            `json:"color,omitempty"`
+	Color *string            `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	// Number of front ports which may be mapped
 	Positions   *int32  `json:"positions,omitempty"`
 	Description *string `json:"description,omitempty"`

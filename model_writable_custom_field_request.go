@@ -24,7 +24,7 @@ type WritableCustomFieldRequest struct {
 	Type              *PatchedWritableCustomFieldRequestType `json:"type,omitempty"`
 	RelatedObjectType NullableString                         `json:"related_object_type,omitempty"`
 	// Internal field name
-	Name string `json:"name"`
+	Name string `json:"name" validate:"regexp=^[a-z0-9_]+$"`
 	// Name of the field as displayed to users (if not provided, 'the field's name will be used)
 	Label *string `json:"label,omitempty"`
 	// Custom fields within the same group will be displayed together

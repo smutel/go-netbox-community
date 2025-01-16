@@ -26,7 +26,7 @@ type PatchedWritableFrontPortTemplateRequest struct {
 	// Physical label
 	Label                *string                       `json:"label,omitempty"`
 	Type                 *FrontPortTypeValue           `json:"type,omitempty"`
-	Color                *string                       `json:"color,omitempty"`
+	Color                *string                       `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	RearPort             *BriefRearPortTemplateRequest `json:"rear_port,omitempty"`
 	RearPortPosition     *int32                        `json:"rear_port_position,omitempty"`
 	Description          *string                       `json:"description,omitempty"`

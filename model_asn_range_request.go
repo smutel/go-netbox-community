@@ -21,7 +21,7 @@ var _ MappedNullable = &ASNRangeRequest{}
 // ASNRangeRequest Adds support for custom fields and tags.
 type ASNRangeRequest struct {
 	Name                 string                     `json:"name"`
-	Slug                 string                     `json:"slug"`
+	Slug                 string                     `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Rir                  BriefRIRRequest            `json:"rir"`
 	Start                int64                      `json:"start"`
 	End                  int64                      `json:"end"`

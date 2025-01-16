@@ -22,7 +22,7 @@ var _ MappedNullable = &SavedFilterRequest{}
 type SavedFilterRequest struct {
 	ObjectTypes          []string      `json:"object_types"`
 	Name                 string        `json:"name"`
-	Slug                 string        `json:"slug"`
+	Slug                 string        `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string       `json:"description,omitempty"`
 	User                 NullableInt32 `json:"user,omitempty"`
 	Weight               *int32        `json:"weight,omitempty"`

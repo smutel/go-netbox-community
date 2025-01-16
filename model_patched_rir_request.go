@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedRIRRequest{}
 // PatchedRIRRequest Adds support for custom fields and tags.
 type PatchedRIRRequest struct {
 	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty"`
+	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	// IP space managed by this RIR is considered private
 	IsPrivate            *bool                  `json:"is_private,omitempty"`
 	Description          *string                `json:"description,omitempty"`

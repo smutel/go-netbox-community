@@ -21,7 +21,7 @@ var _ MappedNullable = &RoleRequest{}
 // RoleRequest Adds support for custom fields and tags.
 type RoleRequest struct {
 	Name                 string                 `json:"name"`
-	Slug                 string                 `json:"slug"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Weight               *int32                 `json:"weight,omitempty"`
 	Description          *string                `json:"description,omitempty"`
 	Tags                 []NestedTagRequest     `json:"tags,omitempty"`

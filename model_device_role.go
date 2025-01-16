@@ -25,8 +25,8 @@ type DeviceRole struct {
 	Url     string  `json:"url"`
 	Display string  `json:"display"`
 	Name    string  `json:"name"`
-	Slug    string  `json:"slug"`
-	Color   *string `json:"color,omitempty"`
+	Slug    string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Color   *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	// Virtual machines may be assigned to this role
 	VmRole               *bool                       `json:"vm_role,omitempty"`
 	ConfigTemplate       NullableBriefConfigTemplate `json:"config_template,omitempty"`

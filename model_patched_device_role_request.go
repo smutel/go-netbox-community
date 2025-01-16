@@ -20,8 +20,8 @@ var _ MappedNullable = &PatchedDeviceRoleRequest{}
 // PatchedDeviceRoleRequest Adds support for custom fields and tags.
 type PatchedDeviceRoleRequest struct {
 	Name  *string `json:"name,omitempty"`
-	Slug  *string `json:"slug,omitempty"`
-	Color *string `json:"color,omitempty"`
+	Slug  *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	// Virtual machines may be assigned to this role
 	VmRole               *bool                              `json:"vm_role,omitempty"`
 	ConfigTemplate       NullableBriefConfigTemplateRequest `json:"config_template,omitempty"`

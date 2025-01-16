@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedVLANGroupRequest{}
 // PatchedVLANGroupRequest Adds support for custom fields and tags.
 type PatchedVLANGroupRequest struct {
 	Name      *string        `json:"name,omitempty"`
-	Slug      *string        `json:"slug,omitempty"`
+	Slug      *string        `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	ScopeType NullableString `json:"scope_type,omitempty"`
 	ScopeId   NullableInt32  `json:"scope_id,omitempty"`
 	// Lowest permissible ID of a child VLAN

@@ -22,7 +22,7 @@ var _ MappedNullable = &WritableSiteRequest{}
 type WritableSiteRequest struct {
 	// Full name of the site
 	Name   string                        `json:"name"`
-	Slug   string                        `json:"slug"`
+	Slug   string                        `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Status *LocationStatusValue          `json:"status,omitempty"`
 	Region NullableBriefRegionRequest    `json:"region,omitempty"`
 	Group  NullableBriefSiteGroupRequest `json:"group,omitempty"`

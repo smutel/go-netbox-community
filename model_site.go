@@ -26,7 +26,7 @@ type Site struct {
 	Display string `json:"display"`
 	// Full name of the site
 	Name   string                 `json:"name"`
-	Slug   string                 `json:"slug"`
+	Slug   string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Status *LocationStatus        `json:"status,omitempty"`
 	Region NullableBriefRegion    `json:"region,omitempty"`
 	Group  NullableBriefSiteGroup `json:"group,omitempty"`

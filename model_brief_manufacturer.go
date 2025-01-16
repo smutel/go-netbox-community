@@ -24,7 +24,7 @@ type BriefManufacturer struct {
 	Url                  string  `json:"url"`
 	Display              string  `json:"display"`
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	DevicetypeCount      *int64  `json:"devicetype_count,omitempty"`
 	AdditionalProperties map[string]interface{}

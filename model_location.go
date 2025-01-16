@@ -25,7 +25,7 @@ type Location struct {
 	Url     string                 `json:"url"`
 	Display string                 `json:"display"`
 	Name    string                 `json:"name"`
-	Slug    string                 `json:"slug"`
+	Slug    string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Site    BriefSite              `json:"site"`
 	Parent  NullableNestedLocation `json:"parent,omitempty"`
 	Status  *LocationStatus        `json:"status,omitempty"`

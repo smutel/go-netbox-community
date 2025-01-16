@@ -21,7 +21,7 @@ var _ MappedNullable = &ClusterGroupRequest{}
 // ClusterGroupRequest Adds support for custom fields and tags.
 type ClusterGroupRequest struct {
 	Name                 string                 `json:"name"`
-	Slug                 string                 `json:"slug"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string                `json:"description,omitempty"`
 	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
 	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`

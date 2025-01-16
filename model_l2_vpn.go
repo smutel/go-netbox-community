@@ -26,7 +26,7 @@ type L2VPN struct {
 	Display              string                 `json:"display"`
 	Identifier           NullableInt64          `json:"identifier,omitempty"`
 	Name                 string                 `json:"name"`
-	Slug                 string                 `json:"slug"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Type                 *BriefL2VPNType        `json:"type,omitempty"`
 	ImportTargets        []RouteTarget          `json:"import_targets,omitempty"`
 	ExportTargets        []RouteTarget          `json:"export_targets,omitempty"`

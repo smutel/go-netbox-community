@@ -24,7 +24,7 @@ type BriefLocation struct {
 	Url                  string  `json:"url"`
 	Display              string  `json:"display"`
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	RackCount            int32   `json:"rack_count"`
 	Depth                int32   `json:"_depth"`

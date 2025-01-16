@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedTenantRequest{}
 // PatchedTenantRequest Adds support for custom fields and tags.
 type PatchedTenantRequest struct {
 	Name                 *string                         `json:"name,omitempty"`
-	Slug                 *string                         `json:"slug,omitempty"`
+	Slug                 *string                         `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Group                NullableBriefTenantGroupRequest `json:"group,omitempty"`
 	Description          *string                         `json:"description,omitempty"`
 	Comments             *string                         `json:"comments,omitempty"`

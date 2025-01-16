@@ -24,7 +24,7 @@ type BriefDeviceRole struct {
 	Url                  string  `json:"url"`
 	Display              string  `json:"display"`
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	DeviceCount          int64   `json:"device_count"`
 	VirtualmachineCount  int64   `json:"virtualmachine_count"`

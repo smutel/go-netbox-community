@@ -29,7 +29,7 @@ type PatchedWritableIPAddressRequest struct {
 	// The IP for which this address is the \"outside\" IP
 	NatInside NullableInt32 `json:"nat_inside,omitempty"`
 	// Hostname or FQDN (not case-sensitive)
-	DnsName              *string                `json:"dns_name,omitempty"`
+	DnsName              *string                `json:"dns_name,omitempty" validate:"regexp=^([0-9A-Za-z_-]+|\\\\*)(\\\\.[0-9A-Za-z_-]+)*\\\\.?$"`
 	Description          *string                `json:"description,omitempty"`
 	Comments             *string                `json:"comments,omitempty"`
 	Tags                 []NestedTagRequest     `json:"tags,omitempty"`

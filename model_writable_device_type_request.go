@@ -24,7 +24,7 @@ type WritableDeviceTypeRequest struct {
 	Manufacturer    BriefManufacturerRequest     `json:"manufacturer"`
 	DefaultPlatform NullableBriefPlatformRequest `json:"default_platform,omitempty"`
 	Model           string                       `json:"model"`
-	Slug            string                       `json:"slug"`
+	Slug            string                       `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	// Discrete part number (optional)
 	PartNumber *string  `json:"part_number,omitempty"`
 	UHeight    *float64 `json:"u_height,omitempty"`

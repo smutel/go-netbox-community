@@ -30,7 +30,7 @@ type FrontPort struct {
 	// Physical label
 	Label    *string           `json:"label,omitempty"`
 	Type     FrontPortType     `json:"type"`
-	Color    *string           `json:"color,omitempty"`
+	Color    *string           `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	RearPort FrontPortRearPort `json:"rear_port"`
 	// Mapped position on corresponding rear port
 	RearPortPosition *int32  `json:"rear_port_position,omitempty"`

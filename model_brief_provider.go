@@ -25,7 +25,7 @@ type BriefProvider struct {
 	Display string `json:"display"`
 	// Full name of the provider
 	Name                 string  `json:"name"`
-	Slug                 string  `json:"slug"`
+	Slug                 string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Description          *string `json:"description,omitempty"`
 	CircuitCount         int64   `json:"circuit_count"`
 	AdditionalProperties map[string]interface{}

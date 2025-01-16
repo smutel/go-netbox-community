@@ -21,7 +21,7 @@ var _ MappedNullable = &TenantRequest{}
 // TenantRequest Adds support for custom fields and tags.
 type TenantRequest struct {
 	Name                 string                          `json:"name"`
-	Slug                 string                          `json:"slug"`
+	Slug                 string                          `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	Group                NullableBriefTenantGroupRequest `json:"group,omitempty"`
 	Description          *string                         `json:"description,omitempty"`
 	Comments             *string                         `json:"comments,omitempty"`
